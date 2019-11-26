@@ -16,8 +16,8 @@ public class CarroService {
         this.carroRepository = carroRepository;
     }
 
-    public List<String> listarCarros(){
+    public List<String> listarCarros(String nome){
 
-        return carroRepository.listarCarros();
+        return carroRepository.listarCarros(nome);
     }
 }
