@@ -2,45 +2,49 @@ package br.com.fundatec.carro.api;
 
 import br.com.fundatec.carro.Service.CarroService;
 import br.com.fundatec.carro.model.Carro;
-import org.springframework.http.HttpStatus;
+import br.com.fundatec.carro.mapper.CarroMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.constraints.Null;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
 public class CarroApi {
 
     private final CarroService carroService;
+    private final CarroMapper carroMapper;
 
-    public CarroApi(CarroService carroService) {
+    public CarroApi(CarroService carroService, CarroMapper carroMapper) {
 
         this.carroService = carroService;
+        this.carroMapper = carroMapper;
     }
 
     @GetMapping("carros") // retorna dados
-    public ResponseEntity<List<Carro>> getCarro(@RequestParam(required = false, defaultValue = "") String nome) {
+    public ResponseEntity<List<CarroOutputDto>> getCarro(@RequestParam(required = false, defaultValue = "") String nome) {
         List<Carro> carros = carroService.listarCarros(nome);
         if (carros.size() == 0) {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT)
-                    .body(carros);
+            return ResponseEntity.noContent()
+                    .build();
         }
-        return ResponseEntity.ok(carros);
+        List<CarroOutputDto> carrosOutputDto = carroMapper.mapear(carros);
+
+        return ResponseEntity.ok(carrosOutputDto);
     }
+
 
     @GetMapping("/carros/{id}")
-    public ResponseEntity<Carro> getCarro(@PathVariable() Long id) {
+    public ResponseEntity<CarroOutputDto> getCarro(@PathVariable() Long id) {
         Carro carro = carroService.consultar(id);
-        if (carro == null) {
-
-            return ResponseEntity.noContent().build();
+        if (carro != null) {
+            CarroOutputDto carroOutputDto = carroMapper.mapear(carro);
+            return ResponseEntity.ok(carroOutputDto);
         }
 
-        return ResponseEntity.ok(carro);
+        return ResponseEntity.noContent().build();
     }
+
 }
