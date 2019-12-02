@@ -5,6 +5,16 @@ public class CarroOutputDto {
     private Long id;
     private String nome;
 
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
+    private String placa;
+
     public CarroOutputDto() {
     }
 

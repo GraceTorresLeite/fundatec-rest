@@ -1,5 +1,6 @@
 package br.com.fundatec.carro.mapper;
 
+import br.com.fundatec.carro.api.CarroInputDto;
 import br.com.fundatec.carro.api.CarroOutputDto;
 import br.com.fundatec.carro.model.Carro;
 import org.springframework.stereotype.Component;
@@ -13,6 +14,7 @@ public class CarroMapper {
         CarroOutputDto carroOutputDto = new CarroOutputDto();
         carroOutputDto.setId(carro.getId());
         carroOutputDto.setNome(carro.getNome());
+        carroOutputDto.setPlaca(carro.getPlaca());
         return carroOutputDto;
     }
     public List<CarroOutputDto> mapear (List<Carro> carros){
@@ -21,5 +23,11 @@ public class CarroMapper {
             carroOutputDtos.add(mapear(carro));
         }
         return carroOutputDtos;
+    }
+    public Carro mapear(CarroInputDto carroInputDto){
+        Carro carro = new Carro();
+        carro.setNome(carroInputDto.getNome());
+        carro.setPlaca(carroInputDto.getPlaca());
+        return carro;
     }
 }
