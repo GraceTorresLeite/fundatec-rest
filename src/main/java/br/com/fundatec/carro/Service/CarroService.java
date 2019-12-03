@@ -26,6 +26,12 @@ public class CarroService {
         return carroRepository.consultar(id);
     }
     public Carro incluir (Carro carro){
+        validar(carro);
         return carroRepository.incluir(carro);
+    }
+    public void validar ( Carro carro){
+        if (carro.getDataModelo().isBefore (carro.getDataFabricacao())){
+            throw new RuntimeException("data fabricação deve ser menor que data modelo");
+        }
     }
 }
