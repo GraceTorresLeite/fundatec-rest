@@ -6,9 +6,19 @@ public class Carro {
 
     private Long id;
     private String nome;
+    private String marca;
     private String placa;
     private LocalDate dataFabricacao;
     private LocalDate dataModelo;
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
 
     public LocalDate getDataFabricacao() {
         return dataFabricacao;
@@ -29,9 +39,10 @@ public class Carro {
     public Carro() {
     }
 
-    public Carro(Long id, String nome, String placa, LocalDate dataFabricacao, LocalDate dataModelo) {
+    public Carro(Long id, String nome, String marca, String placa, LocalDate dataFabricacao, LocalDate dataModelo) {
         this.id = id;
         this.nome = nome;
+        this.marca =marca;
         this.placa = placa;
         this.dataFabricacao = dataFabricacao;
         this.dataModelo = dataModelo;

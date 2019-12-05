@@ -4,6 +4,7 @@ public class CarroOutputDto {
 
     private Long id;
     private String nome;
+    private String marca;
 
     public String getPlaca() {
         return placa;
@@ -18,9 +19,10 @@ public class CarroOutputDto {
     public CarroOutputDto() {
     }
 
-    public CarroOutputDto(Long id, String nome) {
+    public CarroOutputDto(Long id, String nome, String marca) {
         this.id = id;
         this.nome = nome;
+        this.marca = marca;
 
     }
 
@@ -41,4 +43,7 @@ public class CarroOutputDto {
     }
 
 
+    public String getMarca() { return marca; }
+
+    public void setMarca(String marca) { this.marca = marca;}
 }

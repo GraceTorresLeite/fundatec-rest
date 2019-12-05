@@ -4,6 +4,7 @@ package br.com.fundatec.carro.Repository;
 import br.com.fundatec.carro.model.Carro;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -38,17 +39,19 @@ public class CarroRepository {
         listaCarros.add(carro);
         return carro;
     }
-
+    //Carro(Long id, String nome, String marca, String placa, LocalDate dataFabricacao, LocalDate dataModelo)
     private static List<Carro> getListaCarros() {
         if (listaCarros == null) {
             listaCarros = new ArrayList<>();
-            listaCarros.add(new Carro(1L, "Mustang", "MAX1000"));
-            listaCarros.add(new Carro(2L, "Uno com escada", "ABC1234"));
-            listaCarros.add(new Carro(3L, "Chevette", "ASD1235"));
+            listaCarros.add(new Carro(1L, "Mustang", "MAX1000", "Mustang", LocalDate.of(2019, 12, 4), LocalDate.of(2109, 12, 4)));
+            listaCarros.add(new Carro(2L, "Uno com escada", "Fiat ","ABC1234",LocalDate.of(2019, 12, 4), LocalDate.of(2109, 12, 4)));
+            listaCarros.add(new Carro(3L, "Chevette","chevrollet", "ASD1235",LocalDate.of(2019, 12, 4), LocalDate.of(2109, 12, 4)));
         }
 
         return listaCarros;
     }
+
 }
+
 
 

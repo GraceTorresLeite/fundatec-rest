@@ -14,6 +14,7 @@ public class CarroMapper {
         CarroOutputDto carroOutputDto = new CarroOutputDto();
         carroOutputDto.setId(carro.getId());
         carroOutputDto.setNome(carro.getNome());
+        carro.setMarca(carroOutputDto.getMarca());
         carroOutputDto.setPlaca(carro.getPlaca());
         return carroOutputDto;
     }
@@ -27,6 +28,7 @@ public class CarroMapper {
     public Carro mapear(CarroInputDto carroInputDto){
         Carro carro = new Carro();
         carro.setNome(carroInputDto.getNome());
+        carro.setMarca(carroInputDto.getMarca());
         carro.setPlaca(carroInputDto.getPlaca());
         carro.setDataFabricacao(carroInputDto.getDataFabricacao());
         carro.setDataModelo(carroInputDto.getDataModelo());
