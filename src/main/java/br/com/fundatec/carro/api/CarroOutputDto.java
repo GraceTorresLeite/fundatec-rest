@@ -1,29 +1,17 @@
 package br.com.fundatec.carro.api;
 
+import java.time.LocalDate;
+
 public class CarroOutputDto {
 
     private Long id;
     private String nome;
     private String marca;
-
-    public String getPlaca() {
-        return placa;
-    }
-
-    public void setPlaca(String placa) {
-        this.placa = placa;
-    }
-
     private String placa;
+    private LocalDate dataFabricacao;
+    private LocalDate dataModelo;
 
     public CarroOutputDto() {
-    }
-
-    public CarroOutputDto(Long id, String nome, String marca) {
-        this.id = id;
-        this.nome = nome;
-        this.marca = marca;
-
     }
 
     public Long getId() {
@@ -42,8 +30,35 @@ public class CarroOutputDto {
         this.nome = nome;
     }
 
+    public String getMarca() {
+        return marca;
+    }
 
-    public String getMarca() { return marca; }
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
 
-    public void setMarca(String marca) { this.marca = marca;}
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
+    public LocalDate getDataFabricacao() {
+        return dataFabricacao;
+    }
+
+    public void setDataFabricacao(LocalDate dataFabricacao) {
+        this.dataFabricacao = dataFabricacao;
+    }
+
+    public LocalDate getDataModelo() {
+        return dataModelo;
+    }
+
+    public void setDataModelo(LocalDate dataModelo) {
+        this.dataModelo = dataModelo;
+    }
 }
