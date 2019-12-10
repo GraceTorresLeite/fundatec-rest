@@ -1,6 +1,9 @@
 package br.com.fundatec.carro.api;
 
 import br.com.fundatec.carro.Service.CarroService;
+import br.com.fundatec.carro.api.Dto.CarroInputDto;
+import br.com.fundatec.carro.api.Dto.CarroOutputDto;
+import br.com.fundatec.carro.api.Dto.ErroDto;
 import br.com.fundatec.carro.model.Carro;
 import br.com.fundatec.carro.mapper.CarroMapper;
 import org.springframework.format.annotation.DateTimeFormat;
